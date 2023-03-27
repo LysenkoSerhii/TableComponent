@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Table from './view/components/Table/Table';
+import { ThemeProvider } from 'styled-components';
+import { lightTheme } from './view/components/Table/theme';
+import { createPortal } from 'react-dom';
+import Modals from './view/modals';
+import root from './index';
+
+import './index.styles.css';
 
 function App() {
+  const keys = [{id: 0, name: '', age: 0, about: ''}];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={lightTheme}>
+      {createPortal(<Modals />, root)}
+      <div className='table-container'>
+        <Table
+          data={keys}
+        />
+      </div>
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
