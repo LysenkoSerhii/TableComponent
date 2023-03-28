@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 
-import { User } from "../controller/types";
+import { User } from "../types";
 
 export const getUsers = async () => {
   const res = await fetch(`https://642135fb34d6cd4ebd6d74c5.mockapi.io/api/v1/users`, {
